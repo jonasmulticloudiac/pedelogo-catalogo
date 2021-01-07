@@ -3,24 +3,28 @@ kind: Deployment
 metadata:
   name: api-deployment
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: api
-  template: 
-    metadata:       
+  template:
+    metadata:
       labels:
         app: api
-    spec:            
+    spec:
       containers:
       - name: api
         image: jonasmulticloudiac/api-produto:v1
         ports:
         - containerPort: 80
-        imagePullPolicy: Always
         env:
-          - name: MONGODB_URI
-            value: mongodb://mongodbuser:mongodbpwd@mongo-service:27017/admin
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 8080          
+          - name: Mongo__User
+            value: mongouser
+          - name: Mongo__Password
+            value: mongopwd
+          - name: Mongo__Database
+            value: admin
+          - name: Mongo__Port
+            value: "27017"
+          - name: Mongo__Host
+            value: "mongo-service"
