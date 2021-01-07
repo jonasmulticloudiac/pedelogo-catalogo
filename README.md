@@ -1,1 +1,1 @@
-# Pedelogos-Catalogos
+# Pedelogo-Catalogo
