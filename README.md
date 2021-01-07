@@ -1,2 +1,1 @@
-# pedelogo-catalogo
-pedelogo
+# pedelogo-catalogos
